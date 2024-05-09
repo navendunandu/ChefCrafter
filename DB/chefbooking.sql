@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2023 at 12:33 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.5
+-- Generation Time: Nov 10, 2023 at 06:42 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_chefbooking`
+-- Database: `chefbooking`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `tbl_admin` (
   `admin_name` varchar(30) NOT NULL,
   `admin_email` varchar(30) NOT NULL,
   `admin_password` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_admin`
@@ -55,7 +55,7 @@ CREATE TABLE `tbl_booking` (
   `booking_status` int(11) NOT NULL DEFAULT 0,
   `user_id` int(11) NOT NULL,
   `chef_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_booking`
@@ -73,7 +73,7 @@ INSERT INTO `tbl_booking` (`booking_id`, `booking_date`, `booking_fordate`, `boo
 CREATE TABLE `tbl_category` (
   `category_id` int(100) NOT NULL,
   `category_name` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_category`
@@ -104,7 +104,7 @@ CREATE TABLE `tbl_chef` (
   `chef_vstatus` int(11) NOT NULL DEFAULT 0,
   `chef_proof` varchar(500) NOT NULL,
   `place_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_chef`
@@ -133,7 +133,7 @@ CREATE TABLE `tbl_complaint` (
   `complaint_date` varchar(30) NOT NULL,
   `user_id` int(11) NOT NULL,
   `complaint_reply` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_complaint`
@@ -151,7 +151,7 @@ INSERT INTO `tbl_complaint` (`complaint_id`, `chef_id`, `complaint_title`, `comp
 CREATE TABLE `tbl_district` (
   `district_id` int(100) NOT NULL,
   `district_name` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_district`
@@ -179,7 +179,7 @@ CREATE TABLE `tbl_food` (
   `food_name` varchar(30) NOT NULL,
   `foodtype_id` int(100) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_food`
@@ -212,7 +212,7 @@ CREATE TABLE `tbl_foodcart` (
   `menu_id` int(100) NOT NULL,
   `foodcart_qty` int(200) NOT NULL DEFAULT 1,
   `foodcart_status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_foodcart`
@@ -230,7 +230,7 @@ INSERT INTO `tbl_foodcart` (`foodcart_id`, `booking_id`, `menu_id`, `foodcart_qt
 CREATE TABLE `tbl_foodtype` (
   `foodtype_id` int(100) NOT NULL,
   `foodtype_name` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_foodtype`
@@ -254,7 +254,7 @@ CREATE TABLE `tbl_menu` (
   `food_id` int(100) NOT NULL,
   `menu_rate` int(200) NOT NULL,
   `menu_photo` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_menu`
@@ -276,7 +276,7 @@ CREATE TABLE `tbl_place` (
   `place_id` int(100) NOT NULL,
   `place_name` varchar(30) NOT NULL,
   `district_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_place`
@@ -311,7 +311,7 @@ CREATE TABLE `tbl_review` (
   `user_review` varchar(100) NOT NULL,
   `user_rating` varchar(100) NOT NULL,
   `user_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_review`
@@ -335,7 +335,7 @@ CREATE TABLE `tbl_user` (
   `user_address` varchar(50) NOT NULL,
   `place_id` int(11) NOT NULL,
   `user_photo` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_user`

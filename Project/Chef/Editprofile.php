@@ -1,6 +1,6 @@
 <?php
 include("../Assets/Connection/connection.php");
-ob_start()
+ob_start();
 include('Head.php');
 $selchefQuery = "select * from tbl_chef where chef_id = '".$_SESSION["cid"]."'";
 $chefData = $conn->query($selchefQuery);

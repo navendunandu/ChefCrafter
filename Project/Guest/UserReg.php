@@ -43,23 +43,23 @@ if(isset($_POST['btn_save']))
                     <div class="card-body">
                         <div class="form-group">
                             <label for="txt_name">Name</label>
-                            <input type="text" class="form-control" name="txt_name" id="txt_name">
+                            <input type="text" class="form-control" required name="txt_name" id="txt_name">
                         </div>
                         <div class="form-group">
                             <label for="txt_contact">Contact</label>
-                            <input type="number" class="form-control" name="txt_contact" id="txt_contact">
+                            <input type="number" class="form-control" required name="txt_contact" id="txt_contact">
                         </div>
                         <div class="form-group">
                             <label for="txt_email">Email</label>
-                            <input type="email" class="form-control" name="txt_email" id="txt_email">
+                            <input type="email" class="form-control" required name="txt_email" id="txt_email">
                         </div>
                         <div class="form-group">
                             <label for="txt_address">Address</label>
-                            <input type="text" class="form-control" name="txt_address" id="txt_address">
+                            <input type="text" class="form-control" required name="txt_address" id="txt_address">
                         </div>
                         <div class="form-group">
                             <label for="selDistrict">District</label>
-                            <select class="form-control" name="selDistrict" id="selDistrict" onchange='getPlace(this.value)'>
+                            <select class="form-control" required name="selDistrict" id="selDistrict" onchange='getPlace(this.value)'>
                                 <option value="">Select District</option>
         		 <?php
 								$selQry='select * from tbl_district';
@@ -76,7 +76,7 @@ if(isset($_POST['btn_save']))
                         </div>
                         <div class="form-group">
                             <label for="selplace">Place</label>
-                            <select class="form-control" name="selplace" id="selplace">
+                            <select class="form-control" required name="selplace" id="selplace">
                                 <option value="">---Select---</option>
                             </select>
                         </div>
@@ -86,7 +86,7 @@ if(isset($_POST['btn_save']))
                         </div>
                         <div class="form-group">
                             <label for="txt_password">Password</label>
-                            <input type="password" class="form-control" name="txt_password" id="txt_password">
+                            <input type="password" class="form-control" required name="txt_password" id="txt_password">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary" name="btn_save" id="btn_save">Save</button>

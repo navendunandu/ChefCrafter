@@ -3,7 +3,7 @@ include("../Assets/Connection/connection.php");
 ob_start();
 include('Head.php');
 if(isset($_GET['bid'])){
-    $updQry="update tbl_booking set booking_status=".$_GET['st']." where booking_id=".$_GET['bid'];
+    echo $updQry="update tbl_booking set booking_status='".$_GET['st']."' where booking_id=".$_GET['bid'];
     if($conn->query($updQry)){
         ?>
         <script>
@@ -70,7 +70,7 @@ if(isset($_GET['bid'])){
                     if($data['booking_status']==1 ){
                         ?>
                         <a class='btn btn-primary btn-sm' href='Orders.php?st=2&bid=<?php echo $data['booking_id'] ?>'>Accept</a>&nbsp;
-                        <a class='btn btn-primary btn-sm' href='Orders.php?st&3&bid=<?php echo $data['booking_id'] ?>'>Accept</a>
+                        <a class='btn btn-primary btn-sm' href='Orders.php?st&3&bid=<?php echo $data['booking_id'] ?>'>Reject</a>
                         <?php
                     }
                     ?>

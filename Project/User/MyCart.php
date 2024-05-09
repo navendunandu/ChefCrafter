@@ -313,18 +313,33 @@ ob_start();
                 $selC = "select * from tbl_booking where user_id='" .$_SESSION["uid"]. "'and booking_status='0'";
                 $rs = $conn->query($selC);
                 $row=$rs->fetch_assoc();
-                
-               $upQry1 = "update tbl_booking set booking_date=curdate(),booking_amount='".$amt."',booking_status='1',booking_fordate='".$date."' where booking_id='" .$row["booking_id"]. "'";
-				
-				$upQry2 = "update tbl_foodcart set foodcart_status='1' where booking_id='" .$row["booking_id"]. "'";
-                if($conn->query($upQry2) && $conn->query($upQry1))
+                $chef_id = $row["chef_id"];
+
+                $select = "select * from tbl_booking where chef_id='".$chef_id."' and booking_fordate='".$date."'";
+                $result = $conn->query($select);
+                if($resrow = $result->fetch_assoc())
                 {
-						?>
-							<script>
-                                alert('Request Send')
-                           window.location="MyBooking.php";
-                            </script>
-                        <?php
+                    ?>
+                    <script>
+                        alert("Chef is Not Available")
+                        window.location="MyCart.php"
+                    </script>
+                    <?php
+                }
+                else
+                {
+                        $upQry1 = "update tbl_booking set booking_date=curdate(),booking_amount='".$amt."',booking_status='1',booking_fordate='".$date."' where booking_id='" .$row["booking_id"]. "'";
+                    
+                        $upQry2 = "update tbl_foodcart set foodcart_status='1' where booking_id='" .$row["booking_id"]. "'";
+                        if($conn->query($upQry2) && $conn->query($upQry1))
+                        {
+                                ?>
+                                    <script>
+                                        alert('Request Send')
+                                window.location="MyOrder.php";
+                                    </script>
+                                <?php
+                        }
                 }
         }
     ?>
@@ -399,7 +414,7 @@ ob_start();
             
              	<span >DATE</span>
                 
-                    <input type="date" name='txtdate'/>
+                    <input type="date"  required name='txtdate'/>
                     
                 
                 

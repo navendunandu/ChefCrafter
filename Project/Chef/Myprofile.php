@@ -1,6 +1,6 @@
 <?php
 include("../Assets/Connection/connection.php");
-ob_start()
+ob_start();
 include('Head.php');
 
 $selchefQuery = "select * from tbl_chef u inner join tbl_place p on p.place_id = u.place_id inner join tbl_district d on d.district_id = p.district_id where chef_id='".$_SESSION["cid"]."'";

@@ -1,6 +1,6 @@
 <?php
 include("../Assets/Connection/connection.php");
-ob_start()
+ob_start();
 include('Head.php');
 if(isset($_POST['btn_submit'])){
     $photo=$_FILES['photo']['name'];
@@ -144,8 +144,8 @@ if(isset($_GET['mid'])){
     </table>
 </div>
 <?php
-ob_start()
-include('Head.php');
+include('Foot.php');
+ob_flush();
 ?>
 <script src="../Assets/JQ/jQuery.js"></script>
 <script>
